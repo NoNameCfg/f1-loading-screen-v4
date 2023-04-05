@@ -1,4 +1,4 @@
-# f1--loading-screen-v4
+# f1-loading-screen-v4
 
 
 https://forum.cfx.re/t/f1-loading-screen-v4/4828328
