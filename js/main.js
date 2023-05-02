@@ -268,16 +268,6 @@ function clicked(element) {
     setVolume();
 }
 
-function loadProgress(progress) {
-    $(".loader .progress").html(progress + "%");
-}
-
-window.addEventListener('message', function(e) {
-    if (e.data.eventName === 'loadProgress') {
-        loadProgress(parseInt(e.data.loadFraction * 100));
-    }
-});
-
 // Video
 document.getElementById("YTvdo").setAttribute("src", "https://www.youtube.com/embed/" + video_ID + "?autoplay=1&controls=0&playlist="+ video_ID + "&hd=1&amp;&loop=1&mute=1&rel=0" + " " + "frameborder='1' allow='autoplay; encrypted-media' allowfullscreen")
 
@@ -288,17 +278,19 @@ $(".hideoverlay .bind").html(key_overlay)
 var overlay = true;
 $(document).keydown(function(e) {
     if(e.key === key_overlay) {
-        console.warn("Is working! " + overlay)
         overlay = !overlay;
         if(!overlay) {
             $(".overlay").css("opacity", ".0")
+            document.getElementById("footer").innerHTML = key_overlay + " - Remove fullscreen the video";
         } else {
             $(".overlay").css("opacity", "")
+            document.getElementById("footer").innerHTML = key_overlay + " - Fullscreen the video";
         }
     }
 })
 document.getElementById("footer").innerHTML = key_overlay + " - Fullscreen the video";
 
+document.getElementById("name_loadingscreen").innerHTML = name_loading ;
 
 /*
 
